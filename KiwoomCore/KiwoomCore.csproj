@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>KiwoomCore</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU</Platforms>
+    <AssemblyName>KiwoomCore</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KiwoomController\KiwoomController.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AxInterop.KHOpenAPILib">
+      <HintPath>dll\AxInterop.KHOpenAPILib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.KHOpenAPILib">
+      <HintPath>dll\Interop.KHOpenAPILib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
