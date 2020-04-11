@@ -13,6 +13,7 @@ using System.Text.Json;
 using KiwoomController;
 using AxKHOpenAPILib;
 using System.Reflection;
+using Newtonsoft.Json.Linq;
 
 namespace KiwoomCore
 {
@@ -50,7 +51,17 @@ namespace KiwoomCore
         {
             if (OnReceiveTrDataUri != null)
             {
-                HttpContent content = new StringContent(JsonSerializer.Serialize(e), Encoding.UTF8, "application/json");
+                JObject body = new JObject();
+                body["sScrNo"] = e.sScrNo;
+                body["sRQName"] = e.sRQName;
+                body["sTrCode"] = e.sTrCode;
+                body["sRecordName"] = e.sRecordName;
+                body["sPrevNext"] = e.sPrevNext;
+                body["nDataLength"] = e.nDataLength;
+                body["sErrorCode"] = e.sErrorCode;
+                body["sMessage"] = e.sMessage;
+                body["sSplmMsg"] = e.sSplmMsg;
+                HttpContent content = new StringContent(body.ToString(), Encoding.UTF8, "application/json");
                 client.PostAsync(OnReceiveTrDataUri, content);
             }
         }
@@ -59,7 +70,11 @@ namespace KiwoomCore
         {
             if (OnReceiveRealDataUri != null)
             {
-                HttpContent content = new StringContent(JsonSerializer.Serialize(e), Encoding.UTF8, "application/json");
+                JObject body = new JObject();
+                body["sRealKey"] = e.sRealKey;
+                body["sRealType"] = e.sRealType;
+                body["sRealData"] = e.sRealData;
+                HttpContent content = new StringContent(body.ToString(), Encoding.UTF8, "application/json");
                 client.PostAsync(OnReceiveRealDataUri, content);
             }
         }
@@ -68,7 +83,12 @@ namespace KiwoomCore
         {
             if (OnReceiveMsgUri != null)
             {
-                HttpContent content = new StringContent(JsonSerializer.Serialize(e), Encoding.UTF8, "application/json");
+                JObject body = new JObject();
+                body["sScrNo"] = e.sScrNo;
+                body["sRQName"] = e.sRQName;
+                body["sTrCode"] = e.sTrCode;
+                body["sMsg"] = e.sMsg;
+                HttpContent content = new StringContent(body.ToString(), Encoding.UTF8, "application/json");
                 client.PostAsync(OnReceiveMsgUri, content);
             }
         }
@@ -77,7 +97,11 @@ namespace KiwoomCore
         {
             if (OnReceiveChejanDataUri != null)
             {
-                HttpContent content = new StringContent(JsonSerializer.Serialize(e), Encoding.UTF8, "application/json");
+                JObject body = new JObject();
+                body["sGubun"] = e.sGubun;
+                body["nItemCnt"] = e.nItemCnt;
+                body["sFIdList"] = e.sFIdList;
+                HttpContent content = new StringContent(body.ToString(), Encoding.UTF8, "application/json");
                 client.PostAsync(OnReceiveChejanDataUri, content);
             }
         }
@@ -86,7 +110,9 @@ namespace KiwoomCore
         {
             if (OnEventConnectUri != null)
             {
-                HttpContent content = new StringContent(JsonSerializer.Serialize(e), Encoding.UTF8, "application/json");
+                JObject body = new JObject();
+                body["nErrCode"] = e.nErrCode;
+                HttpContent content = new StringContent(body.ToString(), Encoding.UTF8, "application/json");
                 client.PostAsync(OnEventConnectUri, content);
             }
         }
@@ -95,7 +121,12 @@ namespace KiwoomCore
         {
             if (OnReceiveRealConditionUri != null)
             {
-                HttpContent content = new StringContent(JsonSerializer.Serialize(e), Encoding.UTF8, "application/json");
+                JObject body = new JObject();
+                body["sTrCode"] = e.sTrCode;
+                body["strType"] = e.strType;
+                body["strConditionName"] = e.strConditionName;
+                body["strConditionIndex"] = e.strConditionIndex;
+                HttpContent content = new StringContent(body.ToString(), Encoding.UTF8, "application/json");
                 client.PostAsync(OnReceiveRealConditionUri, content);
             }
         }
@@ -104,7 +135,13 @@ namespace KiwoomCore
         {
             if (OnReceiveTrConditionUri != null)
             {
-                HttpContent content = new StringContent(JsonSerializer.Serialize(e), Encoding.UTF8, "application/json");
+                JObject body = new JObject();
+                body["sScrNo"] = e.sScrNo;
+                body["strCodeList"] = e.strCodeList;
+                body["strConditionName"] = e.strConditionName;
+                body["nIndex"] = e.nIndex;
+                body["nNext"] = e.nNext;
+                HttpContent content = new StringContent(body.ToString(), Encoding.UTF8, "application/json");
                 client.PostAsync(OnReceiveTrConditionUri, content);
             }
         }
@@ -113,7 +150,10 @@ namespace KiwoomCore
         {
             if (OnReceiveConditionVerUri != null)
             {
-                HttpContent content = new StringContent(JsonSerializer.Serialize(e), Encoding.UTF8, "application/json");
+                JObject body = new JObject();
+                body["lRet"] = e.lRet;
+                body["sMsg"] = e.sMsg;
+                HttpContent content = new StringContent(body.ToString(), Encoding.UTF8, "application/json");
                 client.PostAsync(OnReceiveConditionVerUri, content);
             }
         }

@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="AxInterop.KHOpenAPILib">
       <HintPath>dll\AxInterop.KHOpenAPILib.dll</HintPath>
     </Reference>
