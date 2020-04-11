@@ -2,7 +2,7 @@
 - 키움의 OCX 형태의 API를 웹 서버 형태로 제공하는 프로젝트
 - https://www2.kiwoom.com/nkw.templateFrameSet.do?m=m1408000000 > 키움 Open API+ 모듈 다운로드
 - 위 페이지의 개발가이드의 메소드와 이벤트를 따름
-- POST / http://localhost:5000/Method, POST / http://localhost:5000/Event를 이용하여 통신  
+- POST / http://localhost:5000/Method , POST / http://localhost:5000/Event 를 이용하여 통신  
 
 ```
 POST http://localhost:5000/Method
