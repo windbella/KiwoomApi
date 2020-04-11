@@ -14,7 +14,7 @@ namespace KiwoomApi
 {
     public class Program
     {
-        public static Core KiwoomCore { get; set; }
+        public static Core? KiwoomCore { get; set; }
 
         public static void Main(string[] args)
         {
