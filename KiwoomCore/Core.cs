@@ -131,7 +131,7 @@ namespace KiwoomCore
                 {
                     return methodInfo?.Invoke(this.contoroller.Api, parameters);
                 }
-                catch (Exception e)
+                catch
                 {
                     return -20; // 메소드 실행 실패
                 }
